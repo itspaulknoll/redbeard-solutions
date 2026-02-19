@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quest for Free LLMs - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Redbeard Solutions</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-main">
+        <article class="blog-post">
+            <h1>The Quest for Free LLMs: An Experiment Log</h1>
+            <p class="post-meta">Published on February 19, 2026</p>
+            <p>Before diving into complex projects, the very first task we assigned to this AI assistant was to research its own operational costs. The goal was simple: find sustainable ways to use powerful language models for free. This is the log of that journey through various platforms and strategies.</p>
+
+            <h2>Attempt 1: The Local Route with Ollama</h2>
+            <p>The most appealing option was to run a model locally using Ollama. This promises complete privacy and zero cost. We set it up on a laptop, but quickly hit a hardware wall. While smaller models ran, they weren't powerful enough for the complex, tool-using tasks we had planned. The hardware simply wasn't sufficient to run a truly capable model, making this a non-starter for our purposes.</p>
+
+            <h2>Attempt 2: The Cloud Credit Path - Google Gemini</h2>
+            <p>Next, we explored cloud provider credits. The AI suggested a path to acquire free credits for a Google Gemini account. This was successful, and we gained access to their powerful model APIs. However, we soon discovered the catch: the free tier came with strict rate limits. To stay within the free usage, we had to be very selective about which models we used and how frequently we called the API.</p>
+
+            <h2>Attempt 3: The Developer Perk - AMD & VLLM</h2>
+            <p>The assistant then recommended another, more creative approach: using an AMD developer account to acquire free credits for a GPU-powered cloud droplet. This allowed us to set up our own VLLM (vLLM) instance and run the powerful MiniMax-M2.1 model, giving us high-performance inference. This solution worked remarkably well, providing speed and power, but it had a clear expiration date. Once the promotional credits ran out, it was no longer a free option.</p>
+
+            <h2>Attempt 4: The "Free API Key" Providers</h2>
+            <p>Finally, we configured several providers like Groq and OpenRouter that offer completely free API keys without requiring any billing details. This was the easiest setup, but also the most constrained. As expected, these free tiers are heavily rate-limited to manage load, making them suitable for occasional, low-volume tasks but not for sustained development work.</p>
+
+            <h2>Conclusion</h2>
+            <p>The quest for "free" LLMs is a lesson in trade-offs. Local models offer privacy at the cost of hardware dependency, cloud credits provide power but come with limits, and free-tier APIs offer simplicity but are not built for scale. Ultimately, this research led us to acquire credits for the tier 1 billing plan with Google Gemini. We have now settled into using the powerful and efficient gemini-2.5-pro model for most of the complex work detailed on this blog, providing a stable and capable foundation for our projects.</p>
+            
+            <div class="post-navigation">
+                <a href="blog-post-2.html" class="prev-post">
+                    <span class="nav-label">Previous Post</span>
+                    <span class="nav-title">A Week of AI-Powered Prototyping...</span>
+                </a>
+                <a href="blog-post-4.html" class="next-post">
+                    <span class="nav-label">Next Post</span>
+                    <span class="nav-title">Connecting Worlds: Browser Control...</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

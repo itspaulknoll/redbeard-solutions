@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting Worlds: Browser Control on a Mac Node - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Redbeard Solutions</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-main">
+        <article class="blog-post">
+            <h1>Connecting Worlds: Browser Control on a Mac Node from a Linux VM</h1>
+            <p class="post-meta">Published on February 19, 2026</p>
+            
+            <h2>The Challenge: A Segmented Setup</h2>
+            <p>For stability and security, our primary OpenClaw gateway runs within a VMware virtual machine on a Linux host. However, many day-to-day browsing tasks and automations are best performed on a macOS machine. The challenge was clear: how can we get the Linux-based gateway to securely control a Chrome browser running on a physical macOS node on the same network?</p>
+
+            <h2>The Solution: OpenClaw Nodes and Tailscale</h2>
+            <p>The solution lies in two key pieces of technology: OpenClaw's built-in node management and a secure networking tool like Tailscale. By treating the macOS machine as a remote "node," the gateway can send it commands. Tailscale creates a secure, private network, allowing the VM and the Mac to communicate as if they were directly connected, without complex firewall rules.</p>
+            
+            <h2>Key Configuration Steps</h2>
+            <p>Here’s a summary of the steps we took to get this working:</p>
+            <ol>
+                <li><strong>Install Tailscale Everywhere:</strong> First, we installed Tailscale on both the Linux VM host and the macOS node, connecting them both to the same private tailnet.</li>
+                <li><strong>Gateway Configuration (`gateway.json`):</strong> In the gateway's configuration, we enabled the Tailscale "serve" mode. This gives the gateway a stable IP address on the private network that the node can always reach.</li>
+                <li><strong>Node Configuration (`node_cli_config.json`):</strong> On the macOS node, we configured the OpenClaw CLI to connect to the remote gateway using its new Tailscale URL (e.g., `wss://gateway-name.tailnet-name.ts.net`).</li>
+                <li><strong>Start the Browser Proxy:</strong> With the connection established, we ran the command <code>openclaw browser --profile chrome start</code> on the macOS node. This starts the local relay service that the Chrome extension needs to communicate with.</li>
+                <li><strong>Attach a Tab:</strong> Finally, in Chrome on the Mac, we simply clicked the OpenClaw browser extension icon on the desired tab to attach it. The gateway in the VM was then able to take snapshots and perform actions on that macOS browser tab seamlessly.</li>
+            </ol>
+
+            <h2>Conclusion</h2>
+            <p>This configuration is a powerful example of OpenClaw's flexibility. By leveraging the node system and a secure networking layer, we can bridge operating systems and virtualization layers, allowing us to combine the strengths of different environments into one cohesive automation platform.</p>
+
+            <div class="post-navigation">
+                <a href="blog-post-3.html" class="prev-post">
+                    <span class="nav-label">Previous Post</span>
+                    <span class="nav-title">The Quest for Free LLMs...</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
