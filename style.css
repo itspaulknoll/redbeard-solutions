@@ -320,6 +320,36 @@ footer p { margin: 0; font-size: 0.9rem; }
 .index-post h2 a:hover { color: var(--accent-color); }
 .read-more { color: var(--accent-color); font-weight: 600; }
 
+/* Style for aligning blog post navigation links */
+.blog-post-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.blog-post-navigation a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.blog-post-navigation a:hover {
+    color: var(--accent-color);
+}
+
+/* Assuming links are within a container, target previous/next */
+/* Adjust selectors if HTML structure is different */
+.blog-post-navigation .previous {
+    order: -1; /* Puts it on the left in a flex container */
+}
+
+.blog-post-navigation .next {
+    order: 1; /* Puts it on the right */
+}
+
+
 /* --- Bio Page --- */
 #bio-hero {
     min-height: 40vh;
