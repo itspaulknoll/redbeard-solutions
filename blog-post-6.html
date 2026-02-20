@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refining User Experience: Navigation and Reader Mode - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Redbeard Solutions</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-main">
+        <article class="blog-post">
+            <h1>Refining the User Experience: Consistent Navigation and Semantic HTML</h1>
+            <p class="post-meta">Published on February 20, 2026</p>
+            
+            <p>In our ongoing efforts to enhance the Redbeard Solutions website, we recently focused on two key areas: perfecting the visual presentation of blog post navigation and ensuring better compatibility with reading tools like Safari Reader Mode.</p>
+
+            <h2>Styling Blog Navigation</h2>
+            <p>Our goal was to transform the plain text links for navigating between blog posts ("Previous" and "Next") into more visually distinct buttons. We applied custom CSS to achieve this, incorporating:</p>
+            <ul>
+                <li><strong>Button-like Appearance:</strong> Using padding, background colors, and hover effects to make them stand out.</li>
+                <li><strong>Consistent Sizing:</strong> Aiming for uniform button dimensions across all posts, even with varying text content, by utilizing <code>min-width</code> and flexbox properties for alignment.</li>
+                <li><strong>Correct Ordering:</strong> Ensuring the "Previous" link appears on the left and the "Next" link on the right by using CSS <code>order</code> properties.</li>
+            </ul>
+            <p>This involved iterative adjustments to the <code>style.css</code> file and verifying the changes across multiple blog post pages.</p>
+
+            <h2>Improving Reader Mode Compatibility</h2>
+            <p>We also addressed how blog content is interpreted by tools like Safari Reader Mode. By ensuring the HTML structure of our blog posts is more semantic – using tags like <code>&lt;article&gt;</code> and <code>&lt;main&gt;</code> appropriately – we help these tools better identify and parse the main content of each article. This leads to a cleaner reading experience when Reader Mode is activated.</p>
+
+            <h2>The Process</h2>
+            <p>This work highlights the iterative nature of web development, especially when paired with AI assistance. We identified an issue, proposed a CSS solution, implemented it, tested it, and then refined it based on feedback. This cycle of "code, commit, test, and iterate" is crucial for building robust and user-friendly websites.</p>
+
+            <div class="blog-post-navigation">
+                <a href="blog-post-5.html" class="previous">
+                    <span class="nav-label">Previous Post</span>
+                    <span class="nav-title">Going Public: Launching Redbeard Solutions on GitHub Pages</span>
+                </a>
+                <a href="blog-post-1.html" class="next">
+                    <span class="nav-label">Next Post</span>
+                    <span class="nav-title">How an AI Assistant Helped Build This Website</span>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
