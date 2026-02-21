@@ -355,11 +355,11 @@ footer p { margin: 0; font-size: 0.9rem; }
 }
 
 /* Style for previous and next links */
-.blog-post-navigation .previous {
+.blog-post-navigation .older-entry {
     order: -1; /* Puts it on the left */
 }
 
-.blog-post-navigation .next {
+.blog-post-navigation .newer-entry {
     order: 1; /* Puts it on the right */
 }
 
@@ -428,10 +428,10 @@ footer p { margin: 0; font-size: 0.9rem; }
     }
 
     /* Ensure the order is maintained if they stack */
-    .blog-post-navigation .previous {
+    .blog-post-navigation .older-entry {
         order: -1;
     }
-    .blog-post-navigation .next {
+    .blog-post-navigation .newer-entry {
         order: 1;
     }
 }
