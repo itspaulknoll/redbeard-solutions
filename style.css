@@ -311,14 +311,14 @@ footer p { margin: 0; font-size: 0.9rem; }
     padding: 120px 2rem 6rem;
 }
 
-.index-post {
+.post-summary {
     background: var(--bg-secondary);
     padding: 2.5rem;
     border-radius: var(--radius);
     margin-bottom: 2rem;
 }
-.index-post h2 a:hover { color: var(--accent-color); }
-.read-more { color: var(--accent-color); font-weight: 600; }
+.post-summary h2 a:hover { color: var(--accent-color); }
+.view-post-link { color: var(--accent-color); font-weight: 600; }
 
 /* Blog Post Navigation - Simplified for Reader Mode */
 .post-navigation-paragraph {
