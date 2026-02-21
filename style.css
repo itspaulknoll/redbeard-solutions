@@ -385,6 +385,11 @@ footer p { margin: 0; font-size: 0.9rem; }
     
     /* Increase top padding on mobile to account for taller header */
     main { padding-top: 160px; }
+    
+    /* Specific override for blog pages to ensure title clears the header */
+    .blog-main { 
+        padding-top: 200px; 
+    }
 
     /* Responsive adjustments for blog navigation */
     .further-reading {
