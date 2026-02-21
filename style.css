@@ -320,52 +320,18 @@ footer p { margin: 0; font-size: 0.9rem; }
 .index-post h2 a:hover { color: var(--accent-color); }
 .read-more { color: var(--accent-color); font-weight: 600; }
 
-/* Related Posts Section */
-.related-posts {
-    margin-top: 4rem;
-    padding-top: 2rem;
+/* Blog Post Navigation - Simplified for Reader Mode */
+.post-navigation-paragraph {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.related-posts h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-}
-
-.post-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.post-links li a {
-    display: block;
-    padding: 1rem 1.5rem;
-    background-color: var(--bg-accent);
-    border-radius: 8px;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.post-links li a:hover {
-    background-color: var(--accent-color);
-    transform: translateX(5px);
-}
-
-.post-links li span {
-    display: block;
-    font-size: 0.85rem;
+    font-style: italic;
     color: var(--text-muted);
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
-.post-links li a:hover span {
-    color: rgba(255,255,255,0.9);
+.post-navigation-paragraph a {
+    font-weight: 600;
+    color: var(--accent-color);
 }
 
 /* Mobile Response */
