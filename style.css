@@ -334,12 +334,14 @@ footer p { margin: 0; font-size: 0.9rem; }
     color: var(--text-main);
     font-weight: 600;
     /* Button-like styling */
-    display: inline-block;
-    padding: 0.75rem 2rem; /* Adjusted padding for consistency */
-    min-width: 150px; /* Added min-width for uniform button size */
-    text-align: center; /* Center text within the button */
-    flex-grow: 1; /* Allow button to grow */
-    flex-shrink: 1; /* Allow button to shrink */
+    display: flex; /* Changed to flex to manage children better */
+    flex-direction: column; /* Stack label and title vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 0.75rem 1rem; /* Adjusted padding for better fit within fixed width */
+    width: 250px; /* Fixed width */
+    flex-grow: 0; /* Prevent growing beyond fixed width */
+    flex-shrink: 0; /* Prevent shrinking below fixed width */
     border-radius: 8px;
     background-color: var(--bg-accent);
     transition: all 0.2s ease;
@@ -358,6 +360,16 @@ footer p { margin: 0; font-size: 0.9rem; }
 
 .blog-post-navigation .next {
     order: 1; /* Puts it on the right */
+}
+
+/* Add this rule to handle text overflow for titles */
+.blog-post-navigation .nav-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Keep text on a single line */
+    max-width: 100%; /* Ensure it doesn't exceed the parent's width */
+    font-size: 0.9rem; /* Slightly smaller font for titles if needed */
+    margin-top: 0.3rem; /* Add some space between label and title */
 }
 
 /* --- Bio Page --- */
