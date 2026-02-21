@@ -339,9 +339,10 @@ footer p { margin: 0; font-size: 0.9rem; }
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
     padding: 0.75rem 1rem; /* Adjusted padding for better fit within fixed width */
-    width: 250px; /* Fixed width */
-    flex-grow: 0; /* Prevent growing beyond fixed width */
-    flex-shrink: 0; /* Prevent shrinking below fixed width */
+    width: 90%; /* Set a width relative to the parent container */
+    max-width: 280px; /* Optional: Set a max-width to prevent them from becoming too wide */
+    flex-grow: 0; /* Prevent growing beyond the specified width */
+    flex-shrink: 0; /* Prevent shrinking below the specified width */
     border-radius: 8px;
     background-color: var(--bg-accent);
     transition: all 0.2s ease;
@@ -366,7 +367,7 @@ footer p { margin: 0; font-size: 0.9rem; }
 .blog-post-navigation .nav-title {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; /* Keep text on a single line */
+    white-space: nowrap; /* Keep text on a single line and truncate if too long */
     max-width: 100%; /* Ensure it doesn't exceed the parent's width */
     font-size: 0.9rem; /* Slightly smaller font for titles if needed */
     margin-top: 0.3rem; /* Add some space between label and title */
@@ -404,21 +405,24 @@ footer p { margin: 0; font-size: 0.9rem; }
     /* Responsive adjustments for blog navigation */
     .blog-post-navigation {
         flex-direction: column; /* Stack buttons vertically on mobile */
-        align-items: stretch; /* Stretch buttons to fill width */
+        align-items: center; /* Center buttons when stacked */
         gap: 1rem; /* Add space between stacked buttons */
     }
 
     .blog-post-navigation a {
-        width: auto; /* Remove fixed width, allow it to adapt */
-        flex-grow: 1; /* Allow buttons to grow to fill available width */
-        flex-shrink: 1; /* Allow buttons to shrink */
-        padding: 0.5rem 1rem; /* Slightly reduced padding for mobile */
+        width: 90%; /* Set a width relative to the parent container */
+        max-width: 280px; /* Optional: Set a max-width to prevent them from becoming too wide */
+        flex-grow: 0; /* Prevent growing beyond the specified width */
+        flex-shrink: 0; /* Prevent shrinking below the specified width */
+        padding: 0.5rem 1rem;
         font-size: 0.9rem; /* Slightly smaller font for mobile */
-        /* Removed fixed width and flex-grow:0/shrink:0 */
+        text-align: center; /* Ensure text is centered within the button */
     }
 
     .blog-post-navigation .nav-title {
-        white-space: normal; /* Allow titles to wrap */
+        white-space: nowrap; /* Keep titles on a single line and truncate if too long */
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 0.9rem; /* Slightly smaller font for titles if needed */
         margin-top: 0.3rem; /* Add some space between label and title */
     }
