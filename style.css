@@ -425,14 +425,24 @@ footer p { margin: 0; font-size: 0.9rem; }
     color: var(--text-main);
 }
 
-/* Simple navigation for individual posts */
-.post-navigation-simple {
-    margin-top: 2rem;
-    padding-top: 1rem;
+/* High-priority reader safe navigation */
+.post-navigation-reader-safe {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.post-navigation-simple hr {
-    border: 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+.post-navigation-reader-safe h2 {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.post-navigation-reader-safe p {
     margin-bottom: 1.5rem;
+}
+
+.post-navigation-reader-safe a {
+    font-weight: 600;
+    text-decoration: underline;
 }
