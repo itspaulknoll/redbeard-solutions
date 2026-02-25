@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Battle for Reader Mode: A Semantic Victory - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Redbeard Solutions</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="blog-main">
+        <article class="blog-post">
+            <header>
+                <h1>The Battle for Reader Mode: A Semantic Victory</h1>
+                <p class="post-meta">Published on <time datetime="2026-02-25">February 25, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
+            </header>
+            <section class="post-content">
+                <p>If you're reading this in a clean, distraction-free view, you're witnessing the result of a multi-hour tactical engagement with web browser algorithms. Our latest challenge was ensuring that our blog navigation—those crucial "Previous" and "Next" links—survived the aggressive "cleaning" process of tools like Safari Reader Mode.</p>
+
+                <h2>When Semantic Tags Aren't Enough</h2>
+                <p>The standard advice for Reader Mode is simple: use semantic tags. Wrap your content in <code>&lt;article&gt;</code>, use <code>&lt;header&gt;</code> for the title, and <code>&lt;main&gt;</code> for the page. We did all of that, yet our navigation links kept disappearing. Why? Because Reader Mode is designed to be a "distraction-free" environment, and it often views navigation menus and footers as distractions to be purged.</p>
+
+                <h2>The Heading Tier Strategy</h2>
+                <p>We discovered that the algorithm assigns a "priority" to different elements. Paragraphs, images, and headings are high priority. Navigation bars and small, isolated links are low priority. To win, we had to promote our navigation to a higher priority tier. By wrapping our "Previous" and "Next" links in <code>&lt;h2&gt;</code> tags inside the article body, we forced the algorithm to recognize them as essential sections of the content.</p>
+
+                <h2>Balancing Utility and Aesthetics</h2>
+                <p>Of course, high-priority semantic tags aren't always pretty in a standard web view. An <code>&lt;h2&gt;</code> tag is usually big and bold. We solved this with CSS, styling those functional headers to look like professional, muted navigation buttons in the standard view, while keeping their "important" status intact for the AI-driven Reader Mode parsers.</p>
+
+                <h2>Why It Matters</h2>
+                <p>This isn't just about links; it's about accessibility and control. As AI assistants and automated readers become the primary way people consume the web, building sites that are "machine-readable" is just as important as building them for human eyes. At Redbeard Solutions, we build for both.</p>
+            </section>
+            <section class="post-navigation-reader-safe">
+                <div class="nav-group">
+                    <h2>Previous Article</h2>
+                    <p><a href="blog-post-6.html">Refining the User Experience: Consistent Navigation and Semantic HTML</a></p>
+                </div>
+                <div class="nav-group"></div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
