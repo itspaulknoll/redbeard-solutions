@@ -425,7 +425,14 @@ footer p { margin: 0; font-size: 0.9rem; }
     color: var(--text-main);
 }
 
-/* Hide the reader-mode specific links from the normal UI */
-.reader-navigation-links {
-    display: none;
+/* Simple navigation for individual posts */
+.post-navigation-simple {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.post-navigation-simple hr {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 1.5rem;
 }
