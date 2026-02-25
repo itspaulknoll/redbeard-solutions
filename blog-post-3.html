@@ -24,8 +24,12 @@
 
     <main class="blog-main">
         <article class="blog-post">
-            <h1>The Quest for Free LLMs: An Experiment Log</h1>
-            <p class="post-meta">Published on February 19, 2026</p>
+            <header>
+                <h1>The Quest for Free LLMs: An Experiment Log</h1>
+                <p class="post-meta">Published on <time datetime="2026-02-19">February 19, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
+            </header>
+            <section class="post-content">
+            
             <p>Before diving into complex projects, the very first task we assigned to this AI assistant was to research its own operational costs. The goal was simple: find sustainable ways to use powerful language models for free. This is the log of that journey through various platforms and strategies.</p>
 
             <h2>Attempt 1: The Local Route with Ollama</h2>
@@ -43,7 +47,7 @@
             <h2>Conclusion</h2>
             <p>The quest for "free" LLMs is a lesson in trade-offs. Local models offer privacy at the cost of hardware dependency, cloud credits provide power but with limits, and free-tier APIs offer simplicity but are not built for scale. Ultimately, this research led us to acquire credits for the tier 1 billing plan with Google Gemini. We have now settled into using the powerful and efficient gemini-2.5-pro model for most of the complex work detailed on this blog, providing a stable and capable foundation for our projects.</p>
             
-            <div class="further-reading">
+            <nav class="further-reading" aria-label="Blog post navigation" >
                 <a href="blog-post-2.html" class="further-reading-link">
                     <span class="nav-label">Previous</span>
                     <span class="nav-title">A Week of AI-Powered Prototyping: Four Projects, One Goal</span>
@@ -52,7 +56,8 @@
                     <span class="nav-label">Next</span>
                     <span class="nav-title">Connecting Worlds: Browser Control on a Mac Node</span>
                 </a>
-            </div>
+            </nav>
+        </section>
         </article>
     </main>
 
