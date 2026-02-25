@@ -315,6 +315,12 @@ footer p { margin: 0; font-size: 0.9rem; }
     margin-bottom: 2.5rem;
 }
 
+.post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
 .post-summary {
     background: var(--bg-secondary);
     padding: 2.5rem;
@@ -330,9 +336,6 @@ footer p { margin: 0; font-size: 0.9rem; }
     justify-content: center; /* Center the group of buttons */
     align-items: stretch;    /* Make buttons equal height */
     width: 100%;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
     gap: 1.5rem; /* Slightly more space */
 }
 
@@ -420,4 +423,9 @@ footer p { margin: 0; font-size: 0.9rem; }
 
 .blog-post li strong {
     color: var(--text-main);
+}
+
+/* Hide the reader-mode specific links from the normal UI */
+.reader-navigation-links {
+    display: none;
 }
