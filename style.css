@@ -308,7 +308,11 @@ footer p { margin: 0; font-size: 0.9rem; }
 .blog-main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 120px 2rem 6rem;
+    padding: 160px 2rem 6rem;
+}
+
+.blog-post header {
+    margin-bottom: 2.5rem;
 }
 
 .post-summary {
@@ -388,7 +392,7 @@ footer p { margin: 0; font-size: 0.9rem; }
     
     /* Specific override for blog pages to ensure title clears the header */
     .blog-main { 
-        padding-top: 200px; 
+        padding-top: 240px; 
     }
 
     /* Responsive adjustments for blog navigation */
