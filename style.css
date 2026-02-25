@@ -71,10 +71,10 @@ a:hover {
 }
 
 /* --- Header --- */
-header {
+header:not(.blog-post header) {
     background-color: rgba(17, 24, 39, 0.95); /* Glassy effect */
     backdrop-filter: blur(10px);
-    padding: 1.25rem 0;
+    padding: 0.75rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -308,7 +308,7 @@ footer p { margin: 0; font-size: 0.9rem; }
 .blog-main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 160px 2rem 6rem;
+    padding: 100px 2rem 6rem;
 }
 
 .blog-post header {
@@ -388,11 +388,11 @@ footer p { margin: 0; font-size: 0.9rem; }
     nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     
     /* Increase top padding on mobile to account for taller header */
-    main { padding-top: 160px; }
+    main { padding-top: 100px; }
     
     /* Specific override for blog pages to ensure title clears the header */
     .blog-main { 
-        padding-top: 240px; 
+        padding-top: 140px; 
     }
 
     /* Responsive adjustments for blog navigation */
