@@ -312,7 +312,15 @@ footer p { margin: 0; font-size: 0.9rem; }
 }
 
 .blog-post header {
+    margin-bottom: 0;
+}
+
+.blog-post h1 {
     margin-bottom: 0.5rem;
+}
+
+.post-meta {
+    margin-bottom: 1.5rem;
 }
 
 .post-footer {
