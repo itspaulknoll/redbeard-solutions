@@ -297,7 +297,7 @@ section h2::after {
 /* --- Footer --- */
 footer {
     background-color: #0f131a;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem; /* Reduced from 4rem */
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
@@ -308,7 +308,7 @@ footer p { margin: 0; font-size: 0.9rem; }
 .blog-main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 100px 2rem 6rem;
+    padding: 80px 2rem 2rem; /* Reduced bottom padding */
 }
 
 .blog-post header {
@@ -316,20 +316,21 @@ footer p { margin: 0; font-size: 0.9rem; }
 }
 
 .blog-post h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .post-meta {
     margin-bottom: 0;
+    line-height: 1; /* Ensure no extra line-height gap */
 }
 
 .blog-post .post-content p:first-of-type {
-    margin-top: 0;
+    margin-top: 0.5rem; /* Precise gap control */
 }
 
 .post-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -439,8 +440,8 @@ footer p { margin: 0; font-size: 0.9rem; }
 
 /* High-priority reader safe navigation */
 .post-navigation-reader-safe {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 2rem; /* Reduced from 4rem */
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     justify-content: space-between;
