@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge Pro | Countryside Next Gen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+        body { font-family: 'Outfit', sans-serif; background-color: #0f172a; color: white; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(135deg, #4ade80 0%, #2dd4bf 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #loading, #output { display: none; }
+        .step { display: none; }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <header class="p-8 border-b border-slate-800 mb-12">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-black italic tracking-tighter uppercase"><span class="gradient-text">Forge</span> Pro</h1>
+                <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">Deep Analysis // Countryside DNA</p>
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-widest px-4 py-2 border border-green-500/30 rounded-full text-green-400">
+                AI Engine Active
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6">
+        
+        <!-- Input -->
+        <div class="glass p-10 rounded-[3rem] mb-12 shadow-2xl">
+            <h2 class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Input Sermon Notes or Concept</h2>
+            <textarea id="sermonNotes" class="w-full h-48 bg-slate-900/50 rounded-2xl p-6 text-slate-200 border border-slate-700 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all outline-none mb-6" placeholder="Paste your sermon outline, main points, or even just a rough transcript here..."></textarea>
+            <button onclick="startProForge()" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-slate-900 font-black py-5 rounded-2xl uppercase tracking-[0.2em] transition-all transform active:scale-95 shadow-xl shadow-green-500/20">
+                Run Deep Analysis
+            </button>
+        </div>
+
+        <!-- Simulated Analysis State -->
+        <div id="loading" class="space-y-4 mb-12">
+            <div id="step1" class="step items-center gap-4 text-sm font-bold text-slate-400">
+                <i class="fa-solid fa-circle-notch fa-spin text-green-400"></i> Parsing Theological Themes...
+            </div>
+            <div id="step2" class="step items-center gap-4 text-sm font-bold text-slate-400">
+                <i class="fa-solid fa-circle-notch fa-spin text-green-400"></i> Syncing with Countryside Next Gen Voice...
+            </div>
+            <div id="step3" class="step items-center gap-4 text-sm font-bold text-slate-400">
+                <i class="fa-solid fa-circle-notch fa-spin text-green-400"></i> Generating Multi-Channel Content Pack...
+            </div>
+        </div>
+
+        <!-- Nuanced Output -->
+        <div id="output" class="space-y-10">
+            
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-slate-800 flex-grow"></div>
+                <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">Analysis Result</h3>
+                <div class="h-px bg-slate-800 flex-grow"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- TikTok/Short Script -->
+                <div class="glass p-8 rounded-[2rem] border-t-4 border-pink-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-pink-500">Short-Form Video</span>
+                        <i class="fa-brands fa-tiktok text-slate-700"></i>
+                    </div>
+                    <p id="tiktokScript" class="text-sm leading-relaxed text-slate-300"></p>
+                    <div class="mt-6 pt-6 border-t border-slate-800 flex items-center gap-4 text-[10px] font-black text-slate-500 uppercase">
+                        <span>Hook: <span id="tiktokHook" class="text-pink-400"></span></span>
+                    </div>
+                </div>
+
+                <!-- Small Group Forge -->
+                <div class="glass p-8 rounded-[2rem] border-t-4 border-slate-200">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-200">Discussion Forge</span>
+                        <i class="fa-solid fa-users text-slate-700"></i>
+                    </div>
+                    <div id="groupQuestions" class="space-y-4 text-sm text-slate-400"></div>
+                </div>
+
+            </div>
+
+            <!-- Deep Dive Parent Connection -->
+            <div class="glass p-10 rounded-[2.5rem] border-l-8 border-green-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-envelope-open-text text-green-500"></i>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-green-500">Parent Strategic Connection</span>
+                </div>
+                <h4 id="parentSubject" class="text-lg font-bold mb-4"></h4>
+                <p id="parentBody" class="text-sm leading-relaxed text-slate-300 italic"></p>
+                <div class="mt-8 p-4 bg-green-500/5 rounded-xl border border-green-500/10 text-[10px] text-green-400 uppercase font-black tracking-widest text-center">
+                    Bridging the Sunday-to-Monday Gap
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        const library = {
+            outreach: {
+                hook: "The Stage or the Shadows?",
+                tiktok: "Pastor Marcelo just challenged us: If your faith only works when people are watching, it’s not faith—it’s a performance. Real Kingdom work happens in the Clearwater streets, at Helping Hands, and in the quiet moments no one sees. Are you a worker, or just an actor?",
+                parentSubject: "Dinner Table Conversations // Serving Clearwater",
+                parentBody: "This week at Countryside Youth, we dove into the heart of service. We want our students to understand that 'Kingdom Work' isn't just what happens on a stage—it's how we serve our community when no one is looking. Ask your student tonight: 'Where is one hidden place you can be a light this week?'",
+                questions: [
+                    "Why do we crave the 'stage' more than the 'shadows'?",
+                    "How does secret service change your relationship with God?",
+                    "What is one practical way we can serve Clearwater as a group this month?"
+                ]
+            },
+            warfare: {
+                hook: "Armor Up.",
+                tiktok: "You wouldn't go into a storm without a jacket, so why go into your school without your armor? Next Gen isn't just about showing up—it's about being equipped. The battle for your generation is real, and the Secret Strength is how you win. Don't just survive; dominate.",
+                parentSubject: "Equipping the Next Gen // Spiritual Strength",
+                parentBody: "We spent tonight talking about spiritual resilience. Your students are facing storms we never had to, and we want to ensure they have the armor to stand firm. We're training them to be more than just attendees—we're raising leaders. Ask them: 'What is one area you need extra strength in right now?'",
+                questions: [
+                    "Which piece of the 'Armor' do you find hardest to keep on?",
+                    "How can we support each other when someone's 'shield' is heavy?",
+                    "Is your strength coming from your own effort or the Secret Strength?"
+                ]
+            },
+            default: {
+                hook: "The Next Gen Shift.",
+                tiktok: "Something is shifting at Countryside. We're moving from just 'attending church' to 'being the church.' Pastor Marcelo is calling this generation to a higher standard. It's time to stop playing safe and start playing for the Kingdom. You in?",
+                parentSubject: "The Monday Shift // Countryside Next Gen",
+                parentBody: "Our message this week focused on the 'Monday Shift'—taking the truths we learn on Sunday and applying them to real life. We want to see our students lead their peers with authenticity and depth. Ask them: 'How did today's message change how you see your week?'",
+                questions: [
+                    "What is the biggest barrier to living your faith on a Monday?",
+                    "How can we make our small groups a place of real accountability?",
+                    "What does a 'Fully Dedicated' life look like in your school?"
+                ]
+            }
+        };
+
+        function startProForge() {
+            const input = document.getElementById('sermonNotes').value.toLowerCase();
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('output').style.display = 'none';
+
+            // Show steps with delays
+            const steps = ['step1', 'step2', 'step3'];
+            steps.forEach((id, i) => {
+                setTimeout(() => {
+                    document.getElementById(id).style.display = 'flex';
+                }, i * 1000);
+            });
+
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('output').style.display = 'block';
+
+                let profile = library.default;
+                if (input.includes('serve') || input.includes('outreach') || input.includes('poor')) profile = library.outreach;
+                if (input.includes('armor') || input.includes('war') || input.includes('battle') || input.includes('strength')) profile = library.warfare;
+
+                document.getElementById('tiktokHook').innerText = profile.hook;
+                document.getElementById('tiktokScript').innerText = profile.tiktok;
+                document.getElementById('parentSubject').innerText = profile.parentSubject;
+                document.getElementById('parentBody').innerText = profile.parentBody;
+
+                const qList = document.getElementById('groupQuestions');
+                qList.innerHTML = '';
+                profile.questions.forEach(q => {
+                    const div = document.createElement('div');
+                    div.className = 'p-4 bg-slate-900/50 rounded-xl border border-slate-800';
+                    div.innerText = q;
+                    qList.appendChild(div);
+                });
+
+                window.scrollTo({ top: document.getElementById('output').offsetTop, behavior: 'smooth' });
+            }, 3500);
+        }
+    </script>
+
+</body>
+</html>
