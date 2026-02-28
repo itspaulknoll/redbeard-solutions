@@ -41,6 +41,12 @@
             color: rgba(255,255,255,0.03);
             font-family: serif;
             transform: rotate(15deg);
+            z-index: 0;
+        }
+        h1, p { z-index: 1; position: relative; }
+        @media (max-width: 600px) {
+            header::after { font-size: 8rem; top: -10px; right: -10px; }
+            h1 { font-size: 1.8rem; }
         }
         h1 {
             font-family: 'Montserrat', sans-serif;
