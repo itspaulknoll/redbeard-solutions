@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Gen Catalyst Toolkit | Countryside Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .accent-gradient { background: linear-gradient(135deg, #22c55e 0%, #10b981 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen pb-12">
+
+    <!-- Header -->
+    <header class="accent-gradient text-white p-6 shadow-lg mb-8">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-black tracking-tight italic uppercase">Next Gen Catalyst</h1>
+                <p class="text-green-50 opacity-80 text-sm font-bold uppercase tracking-widest">Team Mission Control</p>
+            </div>
+            <div class="w-12 h-12 rounded-full border-2 border-white/20 bg-white/10 flex items-center justify-center">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 space-y-8">
+        
+        <!-- Welcome Section -->
+        <section class="mb-4">
+            <h2 class="text-3xl font-black text-slate-900 mb-2">Welcome, Pastor Marcelo.</h2>
+            <p class="text-slate-500 font-medium">Ready to empower the next generation today?</p>
+        </section>
+
+        <!-- Tool Selection Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- AI Content Studio -->
+            <div class="glass p-8 rounded-3xl shadow-sm hover:shadow-md transition-all cursor-pointer border-t-4 border-green-500 group">
+                <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-slate-800 mb-2">AI Content Studio</h3>
+                <p class="text-slate-500 text-sm mb-6">Instantly generate Instagram captions, TikTok scripts, and parent emails.</p>
+                <div class="flex items-center text-green-600 font-black text-xs uppercase tracking-widest">
+                    Open Tool <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <!-- Next Gen Event Lab -->
+            <div class="glass p-8 rounded-3xl shadow-sm hover:shadow-md transition-all cursor-pointer border-t-4 border-emerald-500 group">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-rocket text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-slate-800 mb-2">Next Gen Event Lab</h3>
+                <p class="text-slate-500 text-sm mb-6">AI-powered event themes, planning checklists, and logistics support.</p>
+                <div class="flex items-center text-emerald-600 font-black text-xs uppercase tracking-widest">
+                    Open Tool <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <!-- Impact Storyboard -->
+            <div class="glass p-8 rounded-3xl shadow-sm hover:shadow-md transition-all cursor-pointer border-t-4 border-blue-500 group">
+                <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-microphone-lines text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-slate-800 mb-2">Impact Storyboard</h3>
+                <p class="text-slate-500 text-sm mb-6">Turn ministry wins into compelling hero stories for Sunday morning announcements.</p>
+                <div class="flex items-center text-blue-600 font-black text-xs uppercase tracking-widest">
+                    Open Tool <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <!-- Discipleship Companion -->
+            <div class="glass p-8 rounded-3xl shadow-sm hover:shadow-md transition-all cursor-pointer border-t-4 border-slate-900 group">
+                <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-900 mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-book-open-reader text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-black text-slate-800 mb-2">Discussion Forge</h3>
+                <p class="text-slate-500 text-sm mb-6">Generate small group guides linked to recent sermons and podcast episodes.</p>
+                <div class="flex items-center text-slate-900 font-black text-xs uppercase tracking-widest">
+                    Open Tool <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Recent Activity Feed (Simplified) -->
+        <section class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+            <h3 class="text-lg font-black text-slate-800 mb-6 uppercase tracking-widest">Recent Team Generations</h3>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="w-1 h-12 bg-green-500 rounded-full"></div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Content Studio // 2h ago</p>
+                        <p class="text-slate-700 font-medium italic">"Parent email draft for Summer Camp 2026 registration now open."</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-1 h-12 bg-blue-500 rounded-full"></div>
+                    <div>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Impact Storyboard // 4h ago</p>
+                        <p class="text-slate-700 font-medium italic">"Announcement script: 42 students served at Clearwater Helping Hands."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em] font-bold">
+        Next Gen Strategy by Redbeard Solutions
+    </footer>
+
+</body>
+</html>
