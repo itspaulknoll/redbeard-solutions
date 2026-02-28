@@ -97,6 +97,7 @@
 
     <div class="container">
         <h2>Enter Sermon Notes / Scripture</h2>
+        <input type="password" id="accessCode" placeholder="Enter Access Code" style="width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
         <textarea id="sermonInput" placeholder="Paste sermon points, scripture, or rough notes here..."></textarea>
         <button id="genBtn" onclick="generateContent()">GENERATE CONTENT PACK</button>
 
@@ -126,7 +127,10 @@
     <script>
         async function generateContent() {
             const input = document.getElementById('sermonInput').value;
+            const code = document.getElementById('accessCode').value;
+            
             if (!input) { alert("Please enter some sermon notes first!"); return; }
+            if (!code) { alert("Please enter the access code."); return; }
 
             const btn = document.getElementById('genBtn');
             btn.disabled = true;
@@ -139,11 +143,14 @@
             try {
                 const response = await fetch('https://forge.redbeardtampa.com/api/forge', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    mode: 'cors',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'x-access-code': code 
+                    },
                     body: JSON.stringify({ text: input })
                 });
 
+                if (response.status === 401) throw new Error("Invalid Access Code.");
                 if (!response.ok) throw new Error("Forge engine timeout. Try again.");
 
                 const data = await response.json();
