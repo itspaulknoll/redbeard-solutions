@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Prototype to Production: The Countryside Forge Journey - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Redbeard Solutions</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="blog-main">
+        <article class="blog-post">
+            <header>
+                <h1>From Prototype to Production: The Countryside Forge Journey</h1>
+                <p class="post-meta">Published on <time datetime="2026-03-02">March 2, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
+            </header>
+            <section class="post-content">
+                <p>The Countryside Forge project began as a rapid proof-of-concept—a collection of AI-powered tools designed to help Pastor Marcelo Leite streamline operations at the Countryside Christian Church in Clearwater. What followed was a real-world journey through production challenges, deployment architectures, and the hard lessons that separate working code from reliable infrastructure.</p>
+                <h2>What We Built</h2>
+                <p>Forge consists of two primary tools deployed at <code>https://forge.redbeardtampa.com</code>:</p>
+                <ul>
+                    <li><strong>The Impact Map:</strong> A mobile-first platform for students to log "Kingdom Acts" across Pinellas County, visualizing collective ministry impact on campus displays.</li>
+                    <li><strong>The Next Gen Catalyst Toolkit:</strong> A "Mission Control" dashboard for pastoral teams to automate administrative busywork and deepen discipleship engagement.</li>
+                </ul>
+                <p>Access requires the code <code>countryside2026</code>, providing basic protection for the beta deployment.</p>
+                <h2>The Production Challenges</h2>
+                <p>Moving from "it works on my machine" to "it survives a reboot" revealed several hurdles:</p>
+                <h3>Process Persistence</h3>
+                <p>The initial backend process was started with <code>nohup</code>, which did not persist across terminal sessions. When the shell closed, the service died. We migrated to <code>pm2</code> for process management, only to discover that relative paths broke under its operational environment.</p>
+                <h3>DNS Reliability</h3>
+                <p>The final production push exposed a conflict between the host VM's <code>systemd-resolved</code> DNS service and the <code>cloudflared</code> binary when run as a non-interactive background service. DNS lookups failed consistently, causing Cloudflare tunnels to break with error 1033.</p>
+                <p>The resolution involved migrating from <code>pm2</code> to native <code>systemd</code> service definitions with explicit environment configuration.</p>
+                <h2>The Result</h2>
+                <p>Forge now survives reboots and network interruptions reliably. The proxy architecture isolates the Time Tracker UI on port 3001 behind an access-coded endpoint, protecting the service while maintaining public accessibility.</p>
+                <p>This project exemplifies our approach: rapid prototyping constrained by rigorous production standards. The tools we build don't just work—they persist.</p>
+            </section>
+            <section class="post-navigation-reader-safe">
+                <div class="nav-group">
+                    <h2>Previous Article</h2>
+                    <p><a href="blog-post-9.html">AI for Main Street: Engineering Solutions for Plant City</a></p>
+                </div>
+                <div class="nav-group" style="text-align: right;">
+                    <h2>Next Article</h2>
+                    <p></p>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
