@@ -24,47 +24,53 @@
         <article class="blog-post">
             <header>
                 <h1>From Prototype to Production: The Countryside Forge Journey</h1>
-                <p class="post-meta">Published on <time datetime="2026-03-02">March 2, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
+                <p class="post-meta">Published on <time datetime="2026-03-02">March 2, 2026</a></time> by <span class="author" rel="author">Redbeard Solutions</span></p>
             </header>
             <section class="post-content">
-                <p>The Countryside Forge project began as a rapid proof-of-concept—a collection of AI-powered tools designed to help Pastor Marcelo Leite streamline operations at the Countryside Christian Church in Clearwater. What followed was a real-world journey through production challenges, deployment architectures, and the hard lessons that separate working code from reliable infrastructure.</p>
+                <p>Every software project has a moment of truth—that transition from "it works on my machine" to "it must survive a reboot, network outages, and the occasional stray process kill." For the Countryside Forge project, that moment came fast and taught us lessons worth sharing.</p>
+
+                <p>What began as a rapid proof-of-concept for Pastor Marcelo Leite at the Countryside Christian Church in Clearwater evolved into a real-world journey through production challenges, deployment architectures, and the hard-wrought lessons that separate working code from reliable infrastructure. Here's how we moved from prototype to production—and the obstacles we encountered along the way.</p>
+
                 <h2>What We Built</h2>
-                <p>Forge consists of two primary tools deployed at <code>https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html</code>:</p>
+                <p>Forge consists of two complementary tools designed to streamline operations at the church:</p>
                 <ul>
-                    <li><strong>The Impact Map:</strong> A mobile-first platform for students to log "Kingdom Acts" across Pinellas County, visualizing collective ministry impact on campus displays.</li>
-                    <li><strong>The Next Gen Catalyst Toolkit:</strong> A "Mission Control" dashboard for pastoral teams to automate administrative busywork and deepen discipleship engagement.</li>
+                    <li><strong>The Impact Map:</strong> A mobile-first platform where students log "Kingdom Acts" across Pinellas County. The data feeds live campus displays, creating a visible record of collective ministry impact.</li>
+                    <li><strong>The Next Gen Catalyst Toolkit:</strong> A "Mission Control" dashboard that automates administrative busywork for pastoral teams, freeing staff to focus on deepening discipleship engagement.</li>
                 </ul>
-                <p>Access requires the code <code>redbeard2026</code>, providing basic protection for the beta deployment.</p>
+                <p>Both tools are deployed at <code>https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html</code> and protected by the access code <code>redbeard2026</code>.</p>
+
                 <figure>
                     <pre>+------------------+     +------------------+     +------------------+
 |   Impact Map UI   |     |  Catalyst Toolkit |     |  Forge Proxy     |
-|  (Port 3000)      |     |   (Port 3000)     |     |  (Port 3001)     |
-+------------------+     +------------------+     +------------------+
-         |                       |                       |
-         v                       v                       v
-    +----------------------------------------------------------+
-    |                    Cloudflared Tunnel                     |
-    |                                                 (Error 1033)|
-    +----------------------------------------------------------+
+|    (Port 3000)    |     |    (Port 3000)    |     |   (Port 3001)    |
++----------- --------+     +-------- ---------+     +-------- ---------+
+          |                        |                        |
+          v                        v                        v
+   +-------------------------------------------------------------+
+   |                      Cloudflared Tunnel                     |
+   |   (Error 1033 - DNS Resolution Failure - Initial Attempt)   |
+   +------------------------------------------------------------+
                               |
                               v
-                    https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html
-                          (Access Code: redbeard2026)
-                </pre>
+   https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html
+                         (Access Code: redbeard2026)
+                    </pre>
                     <figcaption>Forge Production Architecture (Post-Fix)</figcaption>
                 </figure>
-                <h2>The Production Challenges</h2>
-                <p>Moving from "it works on my machine" to "it survives a reboot" revealed several hurdles:</p>
-                <h3>Process Persistence</h3>
-                <p>The initial backend process was started with <code>nohup</code>, which did not persist across terminal sessions. When the shell closed, the service died:</p>
-                <pre><code>$ ps aux | grep forge
-agentnode  1234  0:00:00  /bin/bash run_ai_py.sh
-# Process died when shell closed
 
-# Attempted fix with pm2:
-$ pm2 start forge_proxy.js
+                <h2>The Production Challenges</h2>
+                <p>With the prototype validated, we faced the uncomfortable truth: getting code to run reliably in production requires solving an entirely different set of problems than getting code to work correctly. Here's what stood in our way.</p>
+
+                <h3>Challenge #1: Process Persistence</h3>
+                <p>Our initial backend process was started with <code>nohup</code>, a simple approach that served us well during development. When terminal sessions closed, however, the process died with them. The prototype worked beautifully—until it didn't.</p>
+                <p>Seeing this limitation, we migrated to <code>pm2</code> for process management, expecting a cleaner path to persistence. The rapid pivot revealed the core challenge of production environments: solutions often precede yet more problems.</p>
+
+                <h3>Challenge #2: Path Resolution</h3>
+                <p>The pm2 migration surfaced a subtle but critical issue—relative paths that worked in interactive shell environments broke entirely under pm2's operational context. The error message was telling:</p>
+                <pre><code>$ pm2 start forge_proxy.js
 [PM2] Process crashed: Error: spawn python3 ENOENT</code></pre>
-                <p>We migrated to <code>pm2</code> for process management, only to discover that relative paths broke under its operational environment. The resolution involved migrating from <code>pm2</code> to native <code>systemd</code> service definitions:</p>
+                <p>>The path resolution that worked when we logged in simply didn't apply to daemon processes. System environments and user environments are not always the same, and code that doesn't account for this difference will fail in production even when it passes every test.</p>
+                <p>We resolved this by moving to native <code>systemd</code> service definitions with explicit path configuration, providing complete control over the execution environment:</p>
                 <pre><code>[Unit]
 Description=Countryside Forge Proxy Service
 After=network.target
@@ -78,13 +84,16 @@ ExecStart=/usr/bin/node forge_proxy.js
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target</code></pre>
-                <h3>DNS Reliability</h3>
-                <p>The final production push exposed a conflict between the host VM's <code>systemd-resolved</code> DNS service and the <code>cloudflared</code> binary when run as a non-interactive background service. DNS lookups failed consistently, causing Cloudflare tunnels to break with error 1033.</p>
-                <p>The resolution involved migrating from <code>pm2</code> to native <code>systemd</code> service definitions with explicit environment configuration.</p>
+WantedBy=multi-user.target</systemd></code></pre>
+
+                <h3>Challenge #3: DNS Resolution in Background Services</h3>
+                <p>Surprisingly, the final production push exposed an issue unrelated to our code or service configuration. The host VM's <code>systemd-resolved</code> DNS service conflicted with the <code>cloudflared</code> binary when run as a non-interactive background service. DNS lookups failed consistently, and Cloudflare tunnels broke with error 1033—intermittent connectivity losses that appeared to be network problems but were actually DNS configuration conflicts.</p>
+                <p>Resolving this meant carefully configuring the environment in which cloudflared operated, decomposing what seemed like a single connectivity problem into separate path and DNS subproblems.</p>
+
                 <h2>The Result</h2>
-                <p>Forge now survives reboots and network interruptions reliably. The proxy architecture isolates the Time Tracker UI on port 3001 behind an access-coded endpoint, protecting the service while maintaining public accessibility.</p>
-                <p>This project exemplifies our approach: rapid prototyping constrained by rigorous production standards. The tools we build don't just work—they persist.</p>
+                <p>Forge now survives reboots and network interruptions reliably. The proxy architecture isolates the Time Tracker UI on port 3001 behind an access-coded endpoint, providing protection for the service while maintaining public accessibility where needed.</p>
+                <p>The tools we build at Redbeard Solutions don't just work—they persist. They don't just demonstrate possibility—they deliver reliability. The Countryside Forge project exemplifies our philosophy: rapid prototyping constrained by rigorous production standards. Because code that dies when you close your terminal isn't infrastructure—it's a science experiment.</p>
+                <p>Pastor Marcelo Leite now has tools that function whether she's logged in or not. That's the difference between a working prototype and a production system—and that's what we build.</p>
             </section>
             <section class="post-navigation-reader-safe">
                 <div class="nav-group">
