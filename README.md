@@ -17,20 +17,16 @@ This website was entirely designed, coded, and deployed using AI-assisted develo
 ## Screenshots
 
 ### Home Page
-![Redbeard Solutions Home Page](https://via.placeholder.com/1200x800?text=Redbeard+Solutions+Home+Page)
+![Redbeard Solutions Home Page](screenshot_home.png)
 *AI-Driven Solutions for the Modern World homepage*
 
-### Services Section
-![Services Page](https://via.placeholder.com/1200x600?text=AI+Development+%26+Automation+Services)
-*Showcasing AI Development, Smart Environments, and Security Services*
-
 ### Blog Section
-![Blog Archive](https://via.placeholder.com/1200x600?text=Blog+Archive+Pages)
-*Technical blog posts documenting AI workflows and automation*
+![Blog Archive](screenshot_blog.png)
+*Blog archive showcasing all technical articles with navigation*
 
-### Mobile Responsive Design
-![Mobile View](https://via.placeholder.com/400x800?text=Mobile+Responsive+Design)
-*Fully responsive design for all device sizes*
+### Blog Post View
+![Individual Blog Post](screenshot_blog_post.png)
+*Blog entry with full content, navigation, and AI workflow documentation*
 
 ---
 
