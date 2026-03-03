@@ -1,9 +1,5 @@
 # Redbeard Solutions Website
 
-[![Deploy Status]](https://img.shields.io/badge/deployed%20status-success)
-[![License]](https://img.shields.io/badge/License-MIT)
-[![Deployed Via]](https://img.shields.io/badge/GitHub%20Pages-orange)
-
 **Live Site:** [redbeardtampa.com](https://redbeardtampa.com)
 
 **Repository:** [github.com/itspaulknoll/redbeard-solutions](https://github.com/itspaulknoll/redbeard-solutions)
