@@ -41,12 +41,12 @@
 
                 <figure>
                     <pre class="diagram-wrap">┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│   Impact Map UI   │  │  Catalyst Toolkit│  │  Forge Proxy     │
-│    (Port 3000)    │  │    (Port 3000)    │  │   (Port 3001)    │
+│  Impact Map UI    │  │Catalyst Toolkit  │  │  Forge Proxy     │
+│    Port 3000      │  │    Port 3000     │  │    Port 3001     │
 └───────────────────┘  └──────────────────┘  └──────────────────┘
           │                        │                        │
           v                        v                        v
-   ┨════════════════════════════════════════════════════════════━╨
+   ┌════════════════════════════════════════════════════════════━┐
    │                 Cloudflared Tunnel                          │
    │         (Error 1033 - DNS Resolution Failure)               │
    └════════════════════════════════════════════════════════════━┘
@@ -54,7 +54,7 @@
                               ▼
    https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html
                          (Access Code: redbeard2026)</pre>
-                    <figcaption>Forge Production Architecture (Post-Fix)</figcaption>
+                    <figcaption>Forge Production Architecture</figcaption>
                 </figure>
 
                 <h2>The Production Challenges</h2>
