@@ -492,3 +492,26 @@ footer p { margin: 0; font-size: 0.9rem; }
         gap: 2rem;
     }
 }
+
+/* ASCII diagrams and code blocks */
+pre {
+    background-color: var(--bg-secondary);
+    padding: 1rem 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+pre.diagram-wrap {
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+@media (max-width: 600px) {
+    pre {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}

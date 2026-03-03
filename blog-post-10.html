@@ -40,21 +40,20 @@
                 <p>Both tools are deployed at <code>https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html</code> and protected by the access code <code>redbeard2026</code>.</p>
 
                 <figure>
-                    <pre>+------------------+     +------------------+     +------------------+
-|   Impact Map UI   |     |  Catalyst Toolkit |     |  Forge Proxy     |
-|    (Port 3000)    |     |    (Port 3000)    |     |   (Port 3001)    |
-+----------- --------+     +-------- ---------+     +-------- ---------+
-          |                        |                        |
+                    <pre class="diagram-wrap">┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│   Impact Map UI   │  │  Catalyst Toolkit│  │  Forge Proxy     │
+│    (Port 3000)    │  │    (Port 3000)    │  │   (Port 3001)    │
+└───────────────────┘  └──────────────────┘  └──────────────────┘
+          │                        │                        │
           v                        v                        v
-   +-------------------------------------------------------------+
-   |                      Cloudflared Tunnel                     |
-   |   (Error 1033 - DNS Resolution Failure - Initial Attempt)   |
-   +------------------------------------------------------------+
-                              |
-                              v
+   ┨════════════════════════════════════════════════════════════━╨
+   │                 Cloudflared Tunnel                          │
+   │         (Error 1033 - DNS Resolution Failure)               │
+   └════════════════════════════════════════════════════════════━┘
+                              │
+                              ▼
    https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html
-                         (Access Code: redbeard2026)
-                    </pre>
+                         (Access Code: redbeard2026)</pre>
                     <figcaption>Forge Production Architecture (Post-Fix)</figcaption>
                 </figure>
 
@@ -84,7 +83,7 @@ ExecStart=/usr/bin/node forge_proxy.js
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target</systemd></code></pre>
+WantedBy=multi-user.target</code></pre>
 
                 <h3>Challenge #3: DNS Resolution in Background Services</h3>
                 <p>Surprisingly, the final production push exposed an issue unrelated to our code or service configuration. The host VM's <code>systemd-resolved</code> DNS service conflicted with the <code>cloudflared</code> binary when run as a non-interactive background service. DNS lookups failed consistently, and Cloudflare tunnels broke with error 1033—intermittent connectivity losses that appeared to be network problems but were actually DNS configuration conflicts.</p>
