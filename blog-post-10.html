@@ -29,16 +29,56 @@
             <section class="post-content">
                 <p>The Countryside Forge project began as a rapid proof-of-concept—a collection of AI-powered tools designed to help Pastor Marcelo Leite streamline operations at the Countryside Christian Church in Clearwater. What followed was a real-world journey through production challenges, deployment architectures, and the hard lessons that separate working code from reliable infrastructure.</p>
                 <h2>What We Built</h2>
-                <p>Forge consists of two primary tools deployed at <code>https://forge.redbeardtampa.com</code>:</p>
+                <p>Forge consists of two primary tools deployed at <code>https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html</code>:</p>
                 <ul>
                     <li><strong>The Impact Map:</strong> A mobile-first platform for students to log "Kingdom Acts" across Pinellas County, visualizing collective ministry impact on campus displays.</li>
                     <li><strong>The Next Gen Catalyst Toolkit:</strong> A "Mission Control" dashboard for pastoral teams to automate administrative busywork and deepen discipleship engagement.</li>
                 </ul>
-                <p>Access requires the code <code>countryside2026</code>, providing basic protection for the beta deployment.</p>
+                <p>Access requires the code <code>redbeard2026</code>, providing basic protection for the beta deployment.</p>
+                <figure>
+                    <pre>+------------------+     +------------------+     +------------------+
+|   Impact Map UI   |     |  Catalyst Toolkit |     |  Forge Proxy     |
+|  (Port 3000)      |     |   (Port 3000)     |     |  (Port 3001)     |
++------------------+     +------------------+     +------------------+
+         |                       |                       |
+         v                       v                       v
+    +----------------------------------------------------------+
+    |                    Cloudflared Tunnel                     |
+    |                                                 (Error 1033)|
+    +----------------------------------------------------------+
+                              |
+                              v
+                    https://redbeardtampa.com/demos/next-gen-catalyst/forge-pro.html
+                          (Access Code: redbeard2026)
+                </pre>
+                    <figcaption>Forge Production Architecture (Post-Fix)</figcaption>
+                </figure>
                 <h2>The Production Challenges</h2>
                 <p>Moving from "it works on my machine" to "it survives a reboot" revealed several hurdles:</p>
                 <h3>Process Persistence</h3>
-                <p>The initial backend process was started with <code>nohup</code>, which did not persist across terminal sessions. When the shell closed, the service died. We migrated to <code>pm2</code> for process management, only to discover that relative paths broke under its operational environment.</p>
+                <p>The initial backend process was started with <code>nohup</code>, which did not persist across terminal sessions. When the shell closed, the service died:</p>
+                <pre><code>$ ps aux | grep forge
+agentnode  1234  0:00:00  /bin/bash run_ai_py.sh
+# Process died when shell closed
+
+# Attempted fix with pm2:
+$ pm2 start forge_proxy.js
+[PM2] Process crashed: Error: spawn python3 ENOENT</code></pre>
+                <p>We migrated to <code>pm2</code> for process management, only to discover that relative paths broke under its operational environment. The resolution involved migrating from <code>pm2</code> to native <code>systemd</code> service definitions:</p>
+                <pre><code>[Unit]
+Description=Countryside Forge Proxy Service
+After=network.target
+
+[Service]
+Type=simple
+User=agentnode
+WorkingDirectory=/home/agentnode/forge
+Environment=PATH=/usr/bin:/usr/local/bin
+ExecStart=/usr/bin/node forge_proxy.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target</code></pre>
                 <h3>DNS Reliability</h3>
                 <p>The final production push exposed a conflict between the host VM's <code>systemd-resolved</code> DNS service and the <code>cloudflared</code> binary when run as a non-interactive background service. DNS lookups failed consistently, causing Cloudflare tunnels to break with error 1033.</p>
                 <p>The resolution involved migrating from <code>pm2</code> to native <code>systemd</code> service definitions with explicit environment configuration.</p>
