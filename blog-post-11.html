@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernizing Identity: The Shift to Zero-Touch SSO - Redbeard Solutions Blog</title>
+    <title>Building Reliable Infrastructure: The Redbeard Automation Pipeline - Redbeard Solutions Blog</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,36 +23,25 @@
     <main class="blog-main">
         <article class="blog-post">
             <header>
-                <h1>Modernizing Identity: The Shift to Zero-Touch SSO</h1>
+                <h1>Building Reliable Infrastructure: The Redbeard Automation Pipeline</h1>
                 <p class="post-meta">Published on <time datetime="2026-03-19">March 19, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
             </header>
             <section class="post-content">
-                <p>Identity management is often the invisible backbone of enterprise IT. When it works, nobody notices; when it breaks, productivity grinds to a halt. At Redbeard Solutions, we've spent the last few weeks focusing on modernizing identity stacks to enable true zero-touch provisioning and seamless single sign-on (SSO) experiences.</p>
+                <p>At Redbeard Solutions, we don’t just build code; we build the pipelines that make that code reliable. Over the past few weeks, our focus has shifted from rapid, project-based prototyping to tightening up our internal operational pipelines. We’ve been refining how we develop, deploy, and maintain our own infrastructure to ensure our client solutions are as resilient as they are innovative.</p>
 
-                <p>In this post, we’re sharing insights from our latest deployment: moving a regional fleet of 500+ corporate devices from legacy local account management to a unified, automated identity fabric.</p>
+                <h2>Continuous Deployment Workflows</h2>
+                <p>A major focus has been streamlining our deployment workflow. We’ve integrated our local AI-assisted development workspace directly with our GitHub repository, ensuring that every iteration on our site and projects goes through a version-controlled pipeline. This shift to GitHub Pages as our hosting platform means we can move fast, test changes locally, and deploy with confidence, knowing our history is secure and our environment is reproducible.</p>
 
-                <h2>The Problem: The "Manual-Touch" Tax</h2>
-                <p>Manual user onboarding is a silent productivity killer. Whether it’s IT admins imaging laptops, manually joining them to domains, or troubleshooting password resets, every manual step adds cost, complexity, and security risk. We saw an opportunity to replace this "manual-touch" tax with a modern, automated approach using JAMF and Azure AD/SCIM integration.</p>
+                <h2>The Power of AI-Assisted Development</h2>
+                <p>This entire site—and the internal tooling that manages it—is an example of our "AI-first" development philosophy. We use AI agents not just to write code, but to track our time, manage project site updates, and iterate on complex UI designs. By offloading the heavy lifting of project documentation and version management to our own agentic workflows, we can dedicate more energy to solving the core business challenges our clients face.</p>
 
-                <h2>Our Approach: Identity as Code</h2>
-                <p>Modernization isn't just about picking the right tools; it’s about architecting a flow where identity is the primary driver of device state. Here is how we tackled it:</p>
-                <ul>
-                    <li><strong>Unified Identity Source:</strong> We centralized everything on Azure AD, treating it as the authoritative source for all user and group identities.</li>
-                    <li><strong>SCIM Integration:</strong> We automated user provisioning and lifecycle management via SCIM, ensuring that when an employee joins or leaves, their access is updated across every integrated application simultaneously.</li>
-                    <li><strong>Zero-Touch Deployment:</strong> By leveraging JAMF Connect, we enabled users to authenticate using their existing corporate credentials the moment they turn on a new machine. No imaging, no manual domain joins, just an out-of-the-box experience that leads straight to a secure, personalized desktop.</li>
-                </ul>
+                <h2>Persistent Infrastructure: From Script to Service</h2>
+                <p>We’ve been moving away from "it works on my machine" toward a "production-grade" standard for everything we build. Whether it’s maintaining our Time Tracker web application, managing local node automation, or engineering complex smart environment integrations, we’ve prioritized creating stable, reboot-resilient service environments. Reliability is the silent hallmark of quality, and our recent work focuses on ensuring that when we build a solution, it stays built.</p>
 
-                <h2>The Results</h2>
-                <p>The impact was immediate and measurable:</p>
-                <ul>
-                    <li><strong>Provisioning Speed:</strong> Reduced new hire setup time from ~4 hours per machine to ~15 minutes of user self-service.</li>
-                    <li><strong>Support Volume:</strong> Password-related helpdesk tickets plummeted by over 70%, as users now leverage their primary corporate ID for all authentication.</li>
-                    <li><strong>Security Posture:</strong> With automated lifecycle management, access revocation is now instantaneous, closing a major security gap common in manual deprovisioning processes.</li>
-                </ul>
-
-                <h2>Moving Forward</h2>
-                <p>This deployment is just the start. By treating identity as a programmable infrastructure asset, we've unlocked the potential for further automation—including risk-based conditional access and automated compliance reporting.</p>
-                <p>Whether you're managing 50 or 5,000 devices, the lesson remains the same: stop managing devices and start managing identity. When you get the identity fabric right, the rest falls into place.</p>
+                <h2>Proving Capability: Identity Modernization</h2>
+                <p>One of our foundational capabilities is our experience in identity management and zero-touch SSO, which we’ve leveraged in past projects to manage large-scale device fleets. This experience—automating user lifecycles, integrating JAMF with Azure AD, and streamlining provisioning—continues to inform how we build our current projects. By viewing identity as programmable infrastructure, we’ve learned how to build systems that scale effortlessly, regardless of the size of the team or fleet.</p>
+                
+                <p>As we continue to iterate on our automation pipelines, our goal remains clear: to build software and systems that don’t just function, but persist. We’re eager to bring this same level of rigor and reliability to your next project.</p>
             </section>
             <section class="post-navigation-reader-safe">
                 <div class="nav-group">
