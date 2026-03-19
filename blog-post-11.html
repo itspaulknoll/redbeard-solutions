@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernizing Identity: The Shift to Zero-Touch SSO - Redbeard Solutions Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Redbeard <span>Solutions</span></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="blog-main">
+        <article class="blog-post">
+            <header>
+                <h1>Modernizing Identity: The Shift to Zero-Touch SSO</h1>
+                <p class="post-meta">Published on <time datetime="2026-03-19">March 19, 2026</time> by <span class="author" rel="author">Redbeard Solutions</span></p>
+            </header>
+            <section class="post-content">
+                <p>Identity management is often the invisible backbone of enterprise IT. When it works, nobody notices; when it breaks, productivity grinds to a halt. At Redbeard Solutions, we've spent the last few weeks focusing on modernizing identity stacks to enable true zero-touch provisioning and seamless single sign-on (SSO) experiences.</p>
+
+                <p>In this post, we’re sharing insights from our latest deployment: moving a regional fleet of 500+ corporate devices from legacy local account management to a unified, automated identity fabric.</p>
+
+                <h2>The Problem: The "Manual-Touch" Tax</h2>
+                <p>Manual user onboarding is a silent productivity killer. Whether it’s IT admins imaging laptops, manually joining them to domains, or troubleshooting password resets, every manual step adds cost, complexity, and security risk. We saw an opportunity to replace this "manual-touch" tax with a modern, automated approach using JAMF and Azure AD/SCIM integration.</p>
+
+                <h2>Our Approach: Identity as Code</h2>
+                <p>Modernization isn't just about picking the right tools; it’s about architecting a flow where identity is the primary driver of device state. Here is how we tackled it:</p>
+                <ul>
+                    <li><strong>Unified Identity Source:</strong> We centralized everything on Azure AD, treating it as the authoritative source for all user and group identities.</li>
+                    <li><strong>SCIM Integration:</strong> We automated user provisioning and lifecycle management via SCIM, ensuring that when an employee joins or leaves, their access is updated across every integrated application simultaneously.</li>
+                    <li><strong>Zero-Touch Deployment:</strong> By leveraging JAMF Connect, we enabled users to authenticate using their existing corporate credentials the moment they turn on a new machine. No imaging, no manual domain joins, just an out-of-the-box experience that leads straight to a secure, personalized desktop.</li>
+                </ul>
+
+                <h2>The Results</h2>
+                <p>The impact was immediate and measurable:</p>
+                <ul>
+                    <li><strong>Provisioning Speed:</strong> Reduced new hire setup time from ~4 hours per machine to ~15 minutes of user self-service.</li>
+                    <li><strong>Support Volume:</strong> Password-related helpdesk tickets plummeted by over 70%, as users now leverage their primary corporate ID for all authentication.</li>
+                    <li><strong>Security Posture:</strong> With automated lifecycle management, access revocation is now instantaneous, closing a major security gap common in manual deprovisioning processes.</li>
+                </ul>
+
+                <h2>Moving Forward</h2>
+                <p>This deployment is just the start. By treating identity as a programmable infrastructure asset, we've unlocked the potential for further automation—including risk-based conditional access and automated compliance reporting.</p>
+                <p>Whether you're managing 50 or 5,000 devices, the lesson remains the same: stop managing devices and start managing identity. When you get the identity fabric right, the rest falls into place.</p>
+            </section>
+            <section class="post-navigation-reader-safe">
+                <div class="nav-group">
+                    <h2>Previous Article</h2>
+                    <p><a href="blog-post-10.html">From Prototype to Production: The Countryside Forge Journey</a></p>
+                </div>
+                <div class="nav-group" style="text-align: right;">
+                    <h2>Next Article</h2>
+                    <p></p>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2026 Redbeard Solutions. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
