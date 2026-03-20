@@ -39,25 +39,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setInterval(nextSlide, slideInterval);
     }
-    // Square Pay Button Integration
+    // Square Pay Modal Integration
     const payBtn = document.getElementById('nav-pay-btn');
-    if (payBtn) {
+    const squareModal = document.getElementById('square-modal');
+    const closeSquareModal = document.getElementById('close-square-modal');
+
+    if (payBtn && squareModal && closeSquareModal) {
         payBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const url = this.getAttribute('data-url');
-            const title = 'Square Payment Links';
-            const topWindow = window.top ? window.top : window;
-            const dualScreenLeft = topWindow.screenLeft !== undefined ? topWindow.screenLeft : topWindow.screenX;
-            const dualScreenTop = topWindow.screenTop !== undefined ? topWindow.screenTop : topWindow.screenY;
-            const width = topWindow.innerWidth ? topWindow.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-            const height = topWindow.innerHeight ? topWindow.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-            const h = height * .75;
-            const w = 500;
-            const systemZoom = width / topWindow.screen.availWidth;
-            const left = (width - w) / 2 / systemZoom + dualScreenLeft;
-            const top = (height - h) / 2 / systemZoom + dualScreenTop;
-            const newWindow = window.open(url, title, `scrollbars=yes, width=${w / systemZoom}, height=${h / systemZoom}, top=${top}, left=${left}`);
-            if (window.focus) newWindow.focus();
+            squareModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+        });
+
+        closeSquareModal.addEventListener('click', function() {
+            squareModal.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+
+        // Close when clicking outside the modal content
+        squareModal.addEventListener('click', function(e) {
+            if (e.target === squareModal) {
+                squareModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
         });
     }
 });
