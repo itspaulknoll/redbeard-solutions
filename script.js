@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(nextSlide, slideInterval);
     }
     // Square Pay Modal Integration
-    const payBtn = document.getElementById('nav-pay-btn');
+    const payBtn = document.getElementById('nav-pay-action');
     const squareModal = document.getElementById('square-modal');
     const closeSquareModal = document.getElementById('close-square-modal');
 

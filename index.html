@@ -20,7 +20,7 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="team.html">Our Team</a></li>
-                <li><a href="https://square.link/u/UMABqVwS" id="nav-pay-btn" class="cta-button" data-url="https://square.link/u/UMABqVwS?src=embd" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; background-color: #006aff; color: white;">Pay Now</a></li>
+                <li><a href="javascript:void(0);" onclick="document.getElementById('square-modal').style.display='flex'; document.body.style.overflow='hidden';" id="nav-pay-action" class="cta-button" data-url="https://square.link/u/UMABqVwS?src=embd" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; background-color: #006aff; color: white;">Pay Now</a></li>
             </ul>
         </nav>
     </header>
@@ -150,7 +150,7 @@
 <!-- Square Checkout Modal -->
 <div id="square-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
     <div style="position:relative; width:90%; max-width:500px; height:80vh; background:#fff; border-radius:12px; overflow:hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-        <button id="close-square-modal" style="position:absolute; top:10px; right:15px; font-size:2rem; background:none; border:none; cursor:pointer; color:#333; z-index:10000; line-height:1;">&times;</button>
+        <button id="close-square-modal" onclick="document.getElementById('square-modal').style.display='none'; document.body.style.overflow='';" style="position:absolute; top:10px; right:15px; font-size:2rem; background:none; border:none; cursor:pointer; color:#333; z-index:10000; line-height:1;">&times;</button>
         <iframe src="https://square.link/u/UMABqVwS?src=embd" style="width:100%; height:100%; border:none; padding-top:40px;"></iframe>
     </div>
 </div>
