@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Redbeard Solutions</div>
+            <div class="logo" style="display:flex; align-items:center;"><a href="index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center;"><img src="RBS-logo-small.jpeg" alt="Redbeard Solutions" style="height: 32px; width: 32px; margin-right: 12px; border-radius: 6px;"> Redbeard <span style="margin-left:5px; color: var(--accent-color);">Solutions</span></a></div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
@@ -92,7 +92,10 @@ WantedBy=multi-user.target</code></pre>
         </article>
     </main>
     <footer>
-        <p>&copy; 2026 Redbeard Solutions. All rights reserved. | <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></p>
+        <div class="container" style="display:flex; flex-direction:column; align-items:center; gap: 1rem;">
+            <img src="RBS-logo-small.jpeg" alt="Redbeard Solutions Logo" style="height: 80px; width: 80px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <p>&copy; 2026 Redbeard Solutions. All rights reserved. | <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></p>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
