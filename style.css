@@ -104,6 +104,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 nav ul li a {
@@ -404,11 +405,11 @@ footer p { margin: 0; font-size: 0.9rem; }
     nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     
     /* Increase top padding on mobile to account for taller header */
-    main { padding-top: 100px; }
+    main { padding-top: 120px; }
     
     /* Specific override for blog pages to ensure title clears the header */
     .blog-main { 
-        padding-top: 140px; 
+        padding-top: 180px; 
     }
 
     /* Responsive adjustments for blog navigation */
