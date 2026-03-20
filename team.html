@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Redbeard Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .team-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .team-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-header h1 {
+            color: var(--text-main);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-accent);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (min-width: 768px) {
+            .team-member {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .team-member:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .team-image {
+            flex: 0 0 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .team-image-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: var(--bg-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--accent-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-content {
+            flex: 1;
+        }
+
+        .team-content h2 {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .team-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .team-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Redbeard <span>Solutions</span></a></div>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="team.html" style="color: var(--accent-color);">Our Team</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="team-container">
+            <div class="team-header">
+                <h1>Meet the Founders</h1>
+                <p>Veteran-owned and operated, bringing military-grade discipline and decades of enterprise experience to technology integration.</p>
+            </div>
+
+            <!-- Paul Knoll -->
+            <div class="team-member">
+                <div class="team-image">
+                    <div class="team-image-placeholder">
+                        <span>[Image Placeholder: Paul Knoll]<br><br>Recommended Size: 500x500px</span>
+                    </div>
+                </div>
+                <div class="team-content">
+                    <h2>Paul Knoll</h2>
+                    <span class="team-role">Founder & Principal</span>
+                    <p>Paul Knoll brings over 20 years of deep IT experience, bridging the gap between complex cloud infrastructure and intuitive, AI-driven automation. His career began in the U.S. Army Signal Corps, where he served for four years managing battalion-level PC repair and communications. This military foundation instilled a standard of discipline, meticulous planning, and reliable execution that he brings to every technology integration today.</p>
+                    <p>His extensive enterprise career includes a 13-year tenure at ADT/CCI managing national server and storage lifecycles, and serving as Interim IT Lead at National Pool Partners where he directed critical infrastructure modernization across regional sites. At Wind Talker Innovations, Paul led Cloud State Unification, successfully codifying expansive AWS infrastructure using advanced Terraform state imports.</p>
+                    <p>Specializing in Infrastructure as Code, Identity Fabric Architecture (SAML/SCIM/SSO), Cloud Security, and advanced AI automation, Paul has a proven track record of architecting zero-touch deployments and engineering localized, air-gapped AI environments.</p>
+                    
+                    <div class="team-badges">
+                        <span class="badge">U.S. Army Veteran (Signal Corps)</span>
+                        <span class="badge">Anthropic: AI Fluency</span>
+                        <span class="badge">Anthropic: Claude 101</span>
+                        <span class="badge">Anthropic: Claude Code in Action</span>
+                        <span class="badge">Savant Certified</span>
+                        <span class="badge">Microsoft Certified Professional (MCP)</span>
+                        <span class="badge">Cisco SMB-AM/EN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amanda Knoll -->
+            <div class="team-member">
+                <div class="team-image">
+                    <div class="team-image-placeholder">
+                        <span>[Image Placeholder: Amanda Knoll]<br><br>Recommended Size: 500x500px</span>
+                    </div>
+                </div>
+                <div class="team-content">
+                    <h2>Amanda Knoll</h2>
+                    <span class="team-role">Co-Founder & Managing Member</span>
+                    <p>Amanda Knoll serves as the Managing Member and Co-Founder of Redbeard Solutions. Drawing on over 20 years of dedicated customer service experience and her proud background as a U.S. Army veteran, Amanda brings a standard of excellence, discipline, and a client-first focus to the organization.</p>
+                    <p>Her extensive background ensures that every Redbeard Solutions client receives unparalleled support, clear communication, and seamless project execution from start to finish. Together with Paul, Amanda guarantees that Redbeard's highly technical solutions are matched with world-class, dependable service.</p>
+                    
+                    <div class="team-badges">
+                        <span class="badge">U.S. Army Veteran</span>
+                        <span class="badge">20+ Years Customer Success</span>
+                        <span class="badge">Operations Management</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Redbeard Solutions. All rights reserved. | <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
