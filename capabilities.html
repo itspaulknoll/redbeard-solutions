@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capabilities Statement - Redbeard Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cap-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            color: var(--text-main);
+        }
+        
+        .cap-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cap-header h1 {
+            color: var(--text-main);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cap-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.6;
+        }
+
+        .pdf-download-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .pdf-download-btn:hover {
+            opacity: 0.9;
+        }
+
+        .cap-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-accent);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cap-section h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .cap-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .cap-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .cap-card {
+            background: var(--bg-main);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .cap-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .cap-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .cap-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        .cap-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .data-item {
+            background: var(--bg-main);
+            padding: 1rem;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .data-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .data-item span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo" style="display:flex; align-items:center;"><a href="index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center;"><img src="RBS-logo-small.jpeg" alt="Redbeard Solutions" style="height: 32px; width: 32px; margin-right: 12px; border-radius: 6px;"> Redbeard <span style="margin-left:5px; color: var(--accent-color);">Solutions</span></a></div>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="capabilities.html" style="color: var(--accent-color);">Capabilities</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="javascript:void(0);" onclick="document.getElementById('square-modal').style.display='flex'; document.body.style.overflow='hidden';" id="nav-pay-action" class="cta-button" data-url="https://square.link/u/UMABqVwS?src=embd" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; background-color: #006aff; color: white;">Pay Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cap-container">
+            <div class="cap-header">
+                <h1>Capability Statement</h1>
+                <p>Redbeard Solutions LLC is a small business delivering practical IT infrastructure, secure automation, and rapid deployment support for government and commercial customers. Co-owned and operated by two U.S. Army veterans, we bring 28 years of combined IT experience to every engagement.</p>
+                <a href="assets/documents/Redbeard_Capability_Statement.pdf" target="_blank" class="pdf-download-btn">Download PDF Version</a>
+            </div>
+
+            <div class="cap-section">
+                <h2>Core Competencies</h2>
+                <div class="cap-grid">
+                    <div class="cap-card">
+                        <h3>Infrastructure & Cloud Design</h3>
+                        <p>Architecting high-availability networks and hybrid disaster recovery setups tailored for resilience.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>Strategic IT Advisory</h3>
+                        <p>Providing fractional IT leadership, technology roadmap planning, and actionable strategy.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>Network Engineering</h3>
+                        <p>Deploying and managing VLANs, VPNs, IPSEC, GRE tunneling, and multi-site connectivity.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>Edge AI & Automation</h3>
+                        <p>Developing local-first LLM prototypes and customized Python-based infrastructure tooling.</p>
+                    </div>
+                    <div class="cap-card" style="grid-column: 1 / -1;">
+                        <h3>Rapid Deployment</h3>
+                        <p>Executing mobile device migrations, large-scale hardware rollouts, and seamless operational cutovers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cap-section">
+                <h2>Differentiators</h2>
+                <ul class="cap-list">
+                    <li><strong>Military-Grounded Discipline:</strong> Led by two U.S. Army veterans with deeply ingrained operational discipline and Signal Corps expertise.</li>
+                    <li><strong>Principal-Level Execution:</strong> Direct, senior leadership on every engagement—we do not rely on junior handoff delivery.</li>
+                    <li><strong>Privacy & Security Focus:</strong> A strong fit for customers who require secure, privacy-conscious, local-first solutions.</li>
+                    <li><strong>Lean Operating Model:</strong> Low-overhead structures that enable lightning-fast responses and highly competitive pricing.</li>
+                    <li><strong>End-to-End Delivery:</strong> The unique ability to bridge high-level strategy with hands-on engineering, deployment, and operational follow-through.</li>
+                </ul>
+            </div>
+
+            <div class="cap-section">
+                <h2>Selected Past Performance</h2>
+                <div class="cap-grid">
+                    <div class="cap-card">
+                        <h3>National Pool Partners</h3>
+                        <p>Led a 500+ mobile device migration and complete Meraki MDM implementation across national sites.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>Penske</h3>
+                        <p>Managed a massive national CCTV infrastructure rollout spanning more than 350 locations.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>Wind Talker Innovations</h3>
+                        <p>Architected critical AWS services and automated disaster recovery processes using Python and Terraform.</p>
+                    </div>
+                    <div class="cap-card">
+                        <h3>ADT / Cam Connections</h3>
+                        <p>Managed a $250K+ budget while implementing over 20 highly-available server failover clusters.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cap-section">
+                <h2>Company Data</h2>
+                <p style="color: var(--text-muted); text-align: center; margin-bottom: 1rem;">Based in Plant City, FL | Rapid Onsite Support Across Tampa Bay</p>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <strong>Business Status</strong>
+                        <span>Small Business</span>
+                    </div>
+                    <div class="data-item">
+                        <strong>UEI</strong>
+                        <span>YVFNM2YSUN13</span>
+                    </div>
+                    <div class="data-item">
+                        <strong>CAGE Code</strong>
+                        <span>1AHY5</span>
+                    </div>
+                    <div class="data-item">
+                        <strong>Primary NAICS</strong>
+                        <span>541512</span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 1.5rem;">
+                    Other NAICS: 541511, 541519, 541611
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex; flex-direction:column; align-items:center; gap: 1rem;">
+            <img src="RBS-logo-small.jpeg" alt="Redbeard Solutions Logo" style="height: 80px; width: 80px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <p>&copy; 2026 Redbeard Solutions LLC. All rights reserved. | <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+<!-- Square Checkout Modal -->
+<div id="square-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div style="position:relative; width:90%; max-width:500px; height:80vh; background:#fff; border-radius:12px; overflow:hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+        <button id="close-square-modal" onclick="document.getElementById('square-modal').style.display='none'; document.body.style.overflow='';" style="position:absolute; top:10px; right:15px; font-size:2rem; background:none; border:none; cursor:pointer; color:#333; z-index:10000; line-height:1;">&times;</button>
+        <iframe src="https://square.link/u/UMABqVwS?src=embd" style="width:100%; height:100%; border:none; padding-top:40px;"></iframe>
+    </div>
+</div>
+</body>
+</html>
