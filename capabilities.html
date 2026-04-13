@@ -80,10 +80,13 @@
         }
 
         .cap-card {
-            background: var(--bg-main);
+            background: var(--bg-primary);
             padding: 1.5rem;
             border-radius: var(--radius);
             border-left: 4px solid var(--accent-color);
+            min-width: 0;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .cap-card h3 {
@@ -110,17 +113,21 @@
         }
 
         .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 1.5rem;
             margin-top: 1.5rem;
+            justify-content: center;
         }
 
         .data-item {
-            background: var(--bg-main);
+            background: var(--bg-primary);
             padding: 1rem;
             border-radius: var(--radius);
             text-align: center;
+            flex: 1 1 200px;
+            min-width: 200px;
+            box-sizing: border-box;
         }
 
         .data-item strong {
